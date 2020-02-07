@@ -1,4 +1,7 @@
 # Assignment One Report
+
+I, &lt;insert name&gt;, certify that this work is my own, submitted for CSCI 3090U in compliance with the UOIT Academic Integrity Policy
+
 1. [60 marks] Reading and Displaying a 3D Model
 * coordinates in this model are quite small, so i scaled the vertices by 2000 (2e3)
 
