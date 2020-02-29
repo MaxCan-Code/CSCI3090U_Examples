@@ -72,6 +72,11 @@ void init() {
 	/*  Load the obj file */
 
 	std::string err = tinyobj::LoadObj(shapes, materials, "buddha.obj", 0);
+/*
+	grab the .objs from
+    https://github.com/JasdeepN/csci3090u-computer-graphics-and-visualization/blob/master/assignments/a2/src/buddha.obj
+    https://github.com/JasdeepN/csci3090u-computer-graphics-and-visualization/blob/master/assignments/a2/src/dragon.obj
+*/
 
     if (!err.empty()) {
 		std::cerr << err << std::endl;
