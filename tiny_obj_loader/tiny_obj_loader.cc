@@ -142,11 +142,11 @@ static vertex_index parseTriple(
     // i//k
     if (token[0] == '/') {
       token++;
- //     vi.vn_idx = fixIndex(atoi(token), vnsize);
+      vi.vn_idx = fixIndex(atoi(token), vnsize);
       token += strcspn(token, "/ \t\r");
       return vi;
     }
-
+    
     // i/j/k or i/j
     vi.vt_idx = fixIndex(atoi(token), vtsize);
     token += strcspn(token, "/ \t\r");
@@ -158,7 +158,7 @@ static vertex_index parseTriple(
     token++;  // skip '/'
     vi.vn_idx = fixIndex(atoi(token), vnsize);
     token += strcspn(token, "/ \t\r");
-    return vi;
+    return vi; 
 }
 
 static unsigned int
@@ -288,7 +288,7 @@ std::string LoadMtl (
   std::stringstream err;
 
   material_t material;
-
+  
   int maxchars = 8192;  // Alloc enough size.
   std::vector<char> buf(maxchars);  // Alloc enough size.
   while (inStream.peek() != -1) {
@@ -315,9 +315,9 @@ std::string LoadMtl (
 
     assert(token);
     if (token[0] == '\0') continue; // empty line
-
+    
     if (token[0] == '#') continue;  // comment line
-
+    
     // new mtl
     if ((0 == strncmp(token, "newmtl", 6)) && isSpace((token[6]))) {
       // flush previous material.
@@ -337,7 +337,7 @@ std::string LoadMtl (
       material.name = namebuf;
       continue;
     }
-
+    
     // ambient
     if (token[0] == 'K' && token[1] == 'a' && isSpace((token[2]))) {
       token += 2;
@@ -348,7 +348,7 @@ std::string LoadMtl (
       material.ambient[2] = b;
       continue;
     }
-
+    
     // diffuse
     if (token[0] == 'K' && token[1] == 'd' && isSpace((token[2]))) {
       token += 2;
@@ -359,7 +359,7 @@ std::string LoadMtl (
       material.diffuse[2] = b;
       continue;
     }
-
+    
     // specular
     if (token[0] == 'K' && token[1] == 's' && isSpace((token[2]))) {
       token += 2;
@@ -370,7 +370,7 @@ std::string LoadMtl (
       material.specular[2] = b;
       continue;
     }
-
+    
     // transmittance
     if (token[0] == 'K' && token[1] == 't' && isSpace((token[2]))) {
       token += 2;
@@ -513,7 +513,7 @@ LoadObj(
     basePath = mtl_basepath;
   }
   MaterialFileReader matFileReader( basePath );
-
+  
   return LoadObj(shapes, materials, ifs, matFileReader);
 }
 
@@ -564,7 +564,7 @@ std::string LoadObj(
 
     assert(token);
     if (token[0] == '\0') continue; // empty line
-
+    
     if (token[0] == '#') continue;  // comment line
 
     // vertex
@@ -613,7 +613,7 @@ std::string LoadObj(
       }
 
       faceGroup.push_back(face);
-
+      
       continue;
     }
 
@@ -643,13 +643,13 @@ std::string LoadObj(
       char namebuf[4096];
       token += 7;
       sscanf(token, "%s", namebuf);
-
+        
       std::string err_mtl = readMatFn(namebuf, materials, material_map);
       if (!err_mtl.empty()) {
         faceGroup.clear();  // for safety
         return err_mtl;
       }
-
+      
       continue;
     }
 
