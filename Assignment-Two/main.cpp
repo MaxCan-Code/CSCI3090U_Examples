@@ -91,7 +91,7 @@ void init() {
 	vertices = new GLfloat[nv];
 	for(i=0; i<nv; i++) {
 		vertices[i] = shapes[0].mesh.positions[i];
-//        vertices[i] *= 4e2;
+//        vertices[i] *= 4e2;   //buddha dragon
 	}
 
 	/*
@@ -148,7 +148,7 @@ void init() {
 	glBufferData(GL_ARRAY_BUFFER, (nv+nn)*sizeof(GLfloat), NULL, GL_STATIC_DRAW);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, nv*sizeof(GLfloat), vertices);
 	glBufferSubData(GL_ARRAY_BUFFER, nv*sizeof(GLfloat), nn*sizeof(GLfloat), normals);
-	
+
 	/*
 	 *  load the vertex indexes
 	 */
@@ -242,22 +242,37 @@ void display() {
  */
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GLFW_TRUE);
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, GLFW_TRUE);
 
-	if (key == GLFW_KEY_A && action == GLFW_PRESS)
-		phi -= 0.1;
-	if (key == GLFW_KEY_D && action == GLFW_PRESS)
-		phi += 0.1;
-	if (key == GLFW_KEY_W && action == GLFW_PRESS)
-		theta += 0.1;
-	if (key == GLFW_KEY_S && action == GLFW_PRESS)
-		theta -= 0.1;
+    if (key == GLFW_KEY_A && action == GLFW_PRESS)
+        phi -= 0.1;
+    if (key == GLFW_KEY_D && action == GLFW_PRESS)
+        phi += 0.1;
+    if (key == GLFW_KEY_W && action == GLFW_PRESS)
+        theta += 0.1;
+    if (key == GLFW_KEY_S && action == GLFW_PRESS)
+        theta -= 0.1;
 
-	eyex = (float)(r*sin(theta)*cos(phi));
-	eyey = (float)(r*sin(theta)*sin(phi));
-	eyez = (float)(r*cos(theta));
+    eyex = (float) (r * sin(theta) * cos(phi));
+    eyey = (float) (r * sin(theta) * sin(phi));
+    eyez = (float) (r * cos(theta));
 
+    if (key == GLFW_KEY_R && action == GLFW_PRESS)
+        theta = 0;
+    if (key == GLFW_KEY_T && action == GLFW_PRESS)
+        phi = 0;
+    if (key == GLFW_KEY_P && action == GLFW_PRESS)
+        printf("theta phi: %f %f\n", theta, phi);
+
+    if (key == GLFW_KEY_J && action == GLFW_PRESS)
+        phi -= glm::pi<float>() / 2;
+    if (key == GLFW_KEY_L && action == GLFW_PRESS)
+        phi += glm::pi<float>() / 2;
+    if (key == GLFW_KEY_I && action == GLFW_PRESS)
+        theta += glm::pi<float>() / 2;
+    if (key == GLFW_KEY_K && action == GLFW_PRESS)
+        theta -= glm::pi<float>() / 2;
 }
 
 void error_callback(int error, const char* description)
