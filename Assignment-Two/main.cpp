@@ -20,7 +20,7 @@
 #include "shaders.h"
 #include <stdio.h>
 #include "tiny_obj_loader.h"
-#include <iostream>
+//#include <iostream>
 
 GLuint program;			// shader programs
 GLuint objVAO;			// the data to be displayed
@@ -71,16 +71,18 @@ void init() {
 
 	/*  Load the obj file */
 
-	std::string err = tinyobj::LoadObj(shapes, materials, "buddha.obj", 0);
+	std::string err = tinyobj::LoadObj(shapes, materials, "vase.obj", 0);
 /*
 	grab the .objs from
     https://github.com/JasdeepN/csci3090u-computer-graphics-and-visualization/blob/master/assignments/a2/src/buddha.obj
     https://github.com/JasdeepN/csci3090u-computer-graphics-and-visualization/blob/master/assignments/a2/src/dragon.obj
+    or https://www.dropbox.com/s/cygmepzbj9bez0w/3090-assignments.zip?file_subpath=/Assignment+Two
 */
 
     if (!err.empty()) {
-		std::cerr << err << std::endl;
-		return;
+//		std::cerr << err << std::endl;
+        fprintf(stderr, "Error: %s\n", err.c_str());
+        return;
     }
 
 	/*  Retrieve the vertex coordinate data */
@@ -89,7 +91,7 @@ void init() {
 	vertices = new GLfloat[nv];
 	for(i=0; i<nv; i++) {
 		vertices[i] = shapes[0].mesh.positions[i];
-        vertices[i] *= 4e2;
+//        vertices[i] *= 4e2;
 	}
 
 	/*
