@@ -23,3 +23,5 @@ I, &lt;insert name&gt;, certify that this work is my own, submitted for CSCI 309
 * i plotted the control points, and didn't feel like doing the rest
 
 <img src="https://cdn.discordapp.com/attachments/662179346479317022/675178218822828042/unknown.png" width="300">
+
+shoulda used https://en.wikibooks.org/wiki/OpenGL_Programming/Scientific_OpenGL_Tutorial_01#Vertex_buffer_objects but oh well
