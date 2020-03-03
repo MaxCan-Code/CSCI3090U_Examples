@@ -6,4 +6,5 @@
 	url = https://github.com/g-truc/glm
 [submodule "external-libs/glew"]
 	path = external-libs/glew
-	url = https://github.com/Perlmint/glew-cmake/tree/glew-cmake-release
+	url = https://github.com/Perlmint/glew-cmake
+	branch = glew-cmake-release
