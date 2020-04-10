@@ -1,5 +1,3 @@
-
-
 cmake_minimum_required(VERSION 3.0)
 project(CSCI-3090)
 
@@ -17,6 +15,16 @@ include_directories(
 )
 
 set(ALL_LIBS ${OPENGL_LIBRARY} glfw GLEW)
+
+# Assignment Four
+set(A4 "Assignment-Four")
+file(GLOB_RECURSE A4_files
+        ${A4}/main.cpp
+        shaders/*
+        )
+
+add_executable(A4 ${A4_files})
+target_link_libraries(A4 ${ALL_LIBS})
 
 # Assignment Two
 set(A2 "Assignment-Two")
