@@ -20,6 +20,7 @@ then do the directory/file shuffle
 - https://github.com/ArthurSonzogni/OpenGL_CMake_Skeleton
 - https://github.com/Shot511/OpenGLSampleCmake
 - https://github.com/urddru/imgui-glfw
+- https://github.com/andystanton/glfw-skeleton
 
 - https://github.com/rfratto/FreeImage
 - https://github.com/MartinHaimberger/FreeImage
