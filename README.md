@@ -15,3 +15,11 @@ theres also a one-liner on a newer version of git
 git clone --depth 1 --recurse-submodules --remote-submodules https://github.com/MaxCantCode/CSCI-3090
 ```
 then do the directory/file shuffle
+
+(useful templates)
+- https://github.com/ArthurSonzogni/OpenGL_CMake_Skeleton
+- https://github.com/Shot511/OpenGLSampleCmake
+- https://github.com/urddru/imgui-glfw
+
+- https://github.com/rfratto/FreeImage
+- https://github.com/MartinHaimberger/FreeImage
